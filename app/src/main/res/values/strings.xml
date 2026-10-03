@@ -147,6 +147,16 @@
     <string name="winlator_export_font_pack_summary">生成字体替换注册表与系统字体，导入 Winlator 后可解决中文乱码</string>
     <string name="winlator_font_pack_exported">已导出到 %1$s，请按目录内说明在 Winlator 中导入</string>
     <string name="winlator_font_pack_export_failed">导出失败，请检查存储权限</string>
+    <string name="winlator_cn_guide">中文优化指引</string>
+    <string name="winlator_cn_guide_summary">查看中文运行环境与字体优化的分步说明</string>
+    <string name="winlator_cn_guide_step1_title">预置中文运行环境</string>
+    <string name="winlator_cn_guide_step1_body">启动时自动下发 zh_CN.utf8 区域、Asia/Shanghai 时区、dxvk 图形与 PERFORMANCE 性能档位，无需手动设置。</string>
+    <string name="winlator_cn_guide_step2_title">图形驱动自动调优</string>
+    <string name="winlator_cn_guide_step2_body">根据设备 GPU 自动选择图形驱动：骁龙使用 turnip，其余使用 vortek；分辨率自动匹配屏幕。</string>
+    <string name="winlator_cn_guide_step3_title">导出中文字体优化包</string>
+    <string name="winlator_cn_guide_step3_body">点击「导出中文字体优化包」，将字体替换注册表与系统字体导出到 Download/TyranorNext/winlator_cn/。</string>
+    <string name="winlator_cn_guide_step4_title">在 Winlator 中导入</string>
+    <string name="winlator_cn_guide_step4_body">将字体复制到容器 C:\windows\fonts\，双击导入 fontsubstitute.reg，重启容器即可正常显示中文。</string>
     <string name="engine_emulator_installed">已安装</string>
     <string name="engine_emulator_not_installed">未安装</string>
     <string name="engine_settings_external_emulator_hint">该游戏由外置模拟器运行，设置与存档由模拟器管理。</string>

@@ -108,6 +108,8 @@ fun EngineScreen(modifier: Modifier = Modifier) {
     var showExternalJumpDialog by remember { mutableStateOf(false) }
     // YU-RIS 等「引擎专属外置运行时」弹窗：只列该引擎的目标（如 Winlator），标题与内置版本弹窗同构
     var emulatorDialogEngine by remember { mutableStateOf<EngineType?>(null) }
+    // Winlator 中文优化指引弹窗：分步说明中文运行环境、自动调优与字体优化包用法
+    var showWinlatorGuide by remember { mutableStateOf(false) }
 
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
         externalInstallStates = refreshExternalInstallStates(context, engines)
@@ -322,9 +324,63 @@ fun EngineScreen(modifier: Modifier = Modifier) {
                         }
                         Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
                     }
+                    // 中文优化指引：分步说明中文运行环境、自动调优与字体优化包
+                    AppNavItem(
+                        title = stringResource(R.string.winlator_cn_guide),
+                        summary = stringResource(R.string.winlator_cn_guide_summary),
+                        leadingIcon = R.drawable.ic_engine_chip,
+                        containerColor = DialogItemSurface,
+                    ) {
+                        showWinlatorGuide = true
+                    }
                 }
             },
             // 不放取消按钮：点击条目或遮罩即关闭（confirmButton 槽位必填，传空）
+            confirmButton = {},
+        )
+    }
+
+    // Winlator 中文优化指引弹窗：分步说明开箱即用的中文优化能力与字体导入步骤
+    if (showWinlatorGuide) {
+        AppAlertDialog(
+            onDismissRequest = { showWinlatorGuide = false },
+            title = {
+                Text(
+                    stringResource(R.string.winlator_cn_guide),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+            },
+            text = {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .verticalScroll(rememberScrollState()),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                ) {
+                    WinlatorGuideStep(
+                        index = 1,
+                        title = stringResource(R.string.winlator_cn_guide_step1_title),
+                        body = stringResource(R.string.winlator_cn_guide_step1_body),
+                    )
+                    WinlatorGuideStep(
+                        index = 2,
+                        title = stringResource(R.string.winlator_cn_guide_step2_title),
+                        body = stringResource(R.string.winlator_cn_guide_step2_body),
+                    )
+                    WinlatorGuideStep(
+                        index = 3,
+                        title = stringResource(R.string.winlator_cn_guide_step3_title),
+                        body = stringResource(R.string.winlator_cn_guide_step3_body),
+                    )
+                    WinlatorGuideStep(
+                        index = 4,
+                        title = stringResource(R.string.winlator_cn_guide_step4_title),
+                        body = stringResource(R.string.winlator_cn_guide_step4_body),
+                    )
+                }
+            },
             confirmButton = {},
         )
     }
@@ -428,6 +484,50 @@ private fun EngineRow(
                     MaterialTheme.colorScheme.error
                 },
                 modifier = Modifier.size(20.dp),
+            )
+        }
+    }
+}
+
+/**
+ * Winlator 中文优化指引的单步条目：左侧圆形序号徽标 + 右侧标题/正文。
+ */
+@Composable
+private fun WinlatorGuideStep(index: Int, title: String, body: String) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.Top,
+    ) {
+        Box(
+            modifier = Modifier
+                .size(24.dp)
+                .clip(RoundedCornerShape(12.dp))
+                .background(MaterialTheme.colorScheme.primary),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text(
+                text = index.toString(),
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimary,
+            )
+        }
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .padding(start = 12.dp),
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+            Text(
+                text = body,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 2.dp),
             )
         }
     }
