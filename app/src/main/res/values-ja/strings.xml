@@ -143,6 +143,10 @@
     <string name="engine_emulator_ppsspp_gold">PPSSPP ゴールド版</string>
     <string name="engine_emulator_eden">Eden</string>
     <string name="engine_emulator_winlator">Winlator</string>
+    <string name="winlator_export_font_pack">中国語フォント最適化パックを書き出し</string>
+    <string name="winlator_export_font_pack_summary">フォント置換レジストリとシステムフォントを生成。Winlator にインポートすると中国語の文字化けを解消</string>
+    <string name="winlator_font_pack_exported">%1$s に書き出しました。同梱の説明に従って Winlator にインポートしてください。</string>
+    <string name="winlator_font_pack_export_failed">書き出しに失敗しました。ストレージ権限を確認してください。</string>
     <string name="engine_emulator_installed">インストール済み</string>
     <string name="engine_emulator_not_installed">未インストール</string>
     <string name="engine_settings_external_emulator_hint">このゲームは外部エミュレータで実行されます。設定とセーブはエミュレータ側で管理されます。</string>

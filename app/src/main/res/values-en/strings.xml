@@ -143,6 +143,10 @@
     <string name="engine_emulator_ppsspp_gold">PPSSPP Gold</string>
     <string name="engine_emulator_eden">Eden</string>
     <string name="engine_emulator_winlator">Winlator</string>
+    <string name="winlator_export_font_pack">Export Chinese font pack</string>
+    <string name="winlator_export_font_pack_summary">Generate font substitution registry and system fonts; importing into Winlator fixes Chinese garbled text</string>
+    <string name="winlator_font_pack_exported">Exported to %1$s. Follow the README inside to import into Winlator.</string>
+    <string name="winlator_font_pack_export_failed">Export failed. Please check storage permissions.</string>
     <string name="engine_emulator_installed">Installed</string>
     <string name="engine_emulator_not_installed">Not installed</string>
     <string name="engine_settings_external_emulator_hint">This game runs in an external emulator; settings and saves are managed by the emulator.</string>

@@ -113,16 +113,18 @@ class WinlatorSettingsTest {
     }
 
     @Test
-    fun defaultsKeepAllParametersUnset() {
+    fun defaultsUseChineseOptimizedPreset() {
         val defaults = EngineSettingsStore.Winlator()
         assertEquals(0, defaults.containerId)
         assertEquals("", defaults.containerName)
+        // 图形驱动与分辨率留空，启动时由 WinlatorAutoTuning 按设备自动选择
         assertEquals("", defaults.graphicsDriver)
-        assertEquals("", defaults.dxwrapper)
+        assertEquals("dxvk", defaults.dxwrapper)
         assertEquals("", defaults.screenSize)
-        assertEquals("", defaults.lcAll)
-        assertEquals("", defaults.tz)
-        assertEquals("", defaults.box64Preset)
+        // 中文优化默认值：中文 locale、中国时区、性能模式
+        assertEquals("zh_CN.utf8", defaults.lcAll)
+        assertEquals("Asia/Shanghai", defaults.tz)
+        assertEquals("PERFORMANCE", defaults.box64Preset)
         assertEquals(false, defaults.save)
     }
 }

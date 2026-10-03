@@ -717,12 +717,14 @@ object EngineSettingsStore {
     data class Winlator(
         var containerId: Int = 0,
         var containerName: String = "",
+        // 图形驱动留空，启动时由 WinlatorAutoTuning 按 GPU 自动选择（骁龙→turnip，其余→vortek）
         var graphicsDriver: String = "",
-        var dxwrapper: String = "",
+        var dxwrapper: String = "dxvk",
+        // 分辨率留空，启动时由 WinlatorAutoTuning 按设备屏幕自动选择最接近档位
         var screenSize: String = "",
-        var lcAll: String = "",
-        var tz: String = "",
-        var box64Preset: String = "",
+        var lcAll: String = "zh_CN.utf8",
+        var tz: String = "Asia/Shanghai",
+        var box64Preset: String = "PERFORMANCE",
         var save: Boolean = false,
     )
 

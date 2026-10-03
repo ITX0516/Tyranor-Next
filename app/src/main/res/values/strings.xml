@@ -143,6 +143,10 @@
     <string name="engine_emulator_ppsspp_gold">PPSSPP 黄金版</string>
     <string name="engine_emulator_eden">Eden</string>
     <string name="engine_emulator_winlator">Winlator</string>
+    <string name="winlator_export_font_pack">导出中文字体优化包</string>
+    <string name="winlator_export_font_pack_summary">生成字体替换注册表与系统字体，导入 Winlator 后可解决中文乱码</string>
+    <string name="winlator_font_pack_exported">已导出到 %1$s，请按目录内说明在 Winlator 中导入</string>
+    <string name="winlator_font_pack_export_failed">导出失败，请检查存储权限</string>
     <string name="engine_emulator_installed">已安装</string>
     <string name="engine_emulator_not_installed">未安装</string>
     <string name="engine_settings_external_emulator_hint">该游戏由外置模拟器运行，设置与存档由模拟器管理。</string>

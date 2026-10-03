@@ -62,6 +62,7 @@ import com.tyranor.next.core.engine.external.ExternalEmulatorLauncher
 import com.tyranor.next.core.engine.external.ExternalEmulatorRegistry
 import com.tyranor.next.core.engine.external.ExternalEngineLauncher
 import com.tyranor.next.core.engine.external.ExternalEngineModuleRegistry
+import com.tyranor.next.core.engine.external.WinlatorFontPackager
 import com.tyranor.next.core.game.launch.EngineLauncher
 import com.tyranor.next.core.settings.AppSettingsStore
 import com.tyranor.next.core.settings.EngineSettingsStore
@@ -305,6 +306,21 @@ fun EngineScreen(modifier: Modifier = Modifier) {
                             }
                             emulatorDialogEngine = null
                         }
+                    }
+                    // 中文字体优化包：一键导出 fontsubstitute.reg + 系统字体到 Download 目录
+                    AppNavItem(
+                        title = stringResource(R.string.winlator_export_font_pack),
+                        summary = stringResource(R.string.winlator_export_font_pack_summary),
+                        leadingIcon = R.drawable.ic_engine_chip,
+                        containerColor = DialogItemSurface,
+                    ) {
+                        val path = WinlatorFontPackager.exportToDownload(context)
+                        val msg = if (path != null) {
+                            context.getString(R.string.winlator_font_pack_exported, path)
+                        } else {
+                            context.getString(R.string.winlator_font_pack_export_failed)
+                        }
+                        Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
                     }
                 }
             },
