@@ -152,7 +152,7 @@
     <string name="winlator_cn_guide_step1_title">预置中文运行环境</string>
     <string name="winlator_cn_guide_step1_body">启动时自动下发 zh_CN.utf8 区域、Asia/Shanghai 时区、dxvk 图形与 PERFORMANCE 性能档位，无需手动设置。</string>
     <string name="winlator_cn_guide_step2_title">图形驱动自动调优</string>
-    <string name="winlator_cn_guide_step2_body">根据设备 GPU 自动选择图形驱动：骁龙使用 turnip，其余使用 vortek；分辨率自动匹配屏幕。</string>
+    <string name="winlator_cn_guide_step2_body">根据设备 GPU 自动选择图形驱动：骁龙使用 turnip，其余使用 vortek；分辨率跟随 Winlator 容器配置。</string>
     <string name="winlator_cn_guide_step3_title">导出中文字体优化包</string>
     <string name="winlator_cn_guide_step3_body">点击「导出中文字体优化包」，将字体替换注册表与系统字体导出到 Download/TyranorNext/winlator_cn/。</string>
     <string name="winlator_cn_guide_step4_title">在 Winlator 中导入</string>

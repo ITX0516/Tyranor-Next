@@ -152,7 +152,7 @@
     <string name="winlator_cn_guide_step1_title">Pre-configured Chinese environment</string>
     <string name="winlator_cn_guide_step1_body">Automatically applies zh_CN.utf8 locale, Asia/Shanghai timezone, dxvk graphics and PERFORMANCE box64 preset at launch — no manual setup needed.</string>
     <string name="winlator_cn_guide_step2_title">Auto graphics driver tuning</string>
-    <string name="winlator_cn_guide_step2_body">Selects the graphics driver based on device GPU: turnip for Qualcomm Adreno, vortek for others; screen resolution is auto-matched to your display.</string>
+    <string name="winlator_cn_guide_step2_body">Selects the graphics driver based on device GPU: turnip for Qualcomm Adreno, vortek for others; screen resolution follows the Winlator container config.</string>
     <string name="winlator_cn_guide_step3_title">Export Chinese font pack</string>
     <string name="winlator_cn_guide_step3_body">Tap "Export Chinese font pack" to generate the font substitution registry and system fonts into Download/TyranorNext/winlator_cn/.</string>
     <string name="winlator_cn_guide_step4_title">Import into Winlator</string>

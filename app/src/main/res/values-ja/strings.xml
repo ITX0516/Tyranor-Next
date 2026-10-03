@@ -152,7 +152,7 @@
     <string name="winlator_cn_guide_step1_title">プリセット中国語環境</string>
     <string name="winlator_cn_guide_step1_body">起動時に zh_CN.utf8 ロケール、Asia/Shanghai タイムゾーン、dxvk グラフィックス、PERFORMANCE box64 プリセットを自動適用。手動設定は不要です。</string>
     <string name="winlator_cn_guide_step2_title">グラフィックスドライバー自動調整</string>
-    <string name="winlator_cn_guide_step2_body">デバイスの GPU に応じてドライバーを自動選択：Qualcomm Adreno は turnip、その他は vortek。解像度は画面に自動マッチングします。</string>
+    <string name="winlator_cn_guide_step2_body">デバイスの GPU に応じてドライバーを自動選択：Qualcomm Adreno は turnip、その他は vortek。解像度は Winlator コンテナの設定に従います。</string>
     <string name="winlator_cn_guide_step3_title">中国語フォント最適化パックを書き出し</string>
     <string name="winlator_cn_guide_step3_body">「中国語フォント最適化パックを書き出し」をタップし、フォント置換レジストリとシステムフォントを Download/TyranorNext/winlator_cn/ に生成します。</string>
     <string name="winlator_cn_guide_step4_title">Winlator にインポート</string>

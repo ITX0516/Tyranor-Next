@@ -87,12 +87,12 @@ PSP 与 Nintendo Switch 游戏通过外置模拟器跳转运行：扫描按 ROM 
 | `dxwrapper` | `dxvk` | DirectX 转 Vulkan，兼容性与性能均衡 |
 | `box64Preset` | `PERFORMANCE` | box64 性能档位，提升游戏运行速度 |
 
-### 图形驱动与分辨率自动调优
+### 图形驱动自动调优
 
-由 `WinlatorAutoTuning` 在启动时自动检测设备硬件并填充用户未设置的项：
+由 `WinlatorAutoTuning` 在启动时自动检测设备 GPU 并填充用户未设置的图形驱动：
 
 - **图形驱动**：骁龙（Adreno）GPU → `turnip,zink`（原生 Vulkan）；其余 GPU（Mali/PowerVR 等）→ `vortek,zink`（兼容性优先）。
-- **分辨率**：从预设档位中选取宽高比最接近设备屏幕、且不超过物理分辨率的档位，避免画面拉伸或黑边。
+- **分辨率**：不自动检测，留空跟随 Winlator 容器自身配置，避免与容器分辨率策略冲突。
 
 ### 一键中文字体优化包
 
