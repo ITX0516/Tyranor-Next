@@ -72,6 +72,38 @@ PSP 与 Nintendo Switch 游戏通过外置模拟器跳转运行：扫描按 ROM 
 - 游戏目录需位于 Android 可访问的本地存储，并通过系统文件选择器（SAF）授权；启动时目录必须能够映射为真实文件路径，外置存储上的部分引擎可能需要“所有文件访问”权限。
 - 实际兼容性取决于游戏使用的引擎版本、封包/加密方式和脚本特性；特殊修改版可能需要调整引擎设置或补丁。
 
+## Winlator 中文优化
+
+本分支针对外置 Winlator（YU-RIS / CatSystem2 / PC 游戏）做了中文体验优化，目标是让用户开箱即玩，无需手动折腾区域设置与字体。
+
+### 预置中文运行环境
+
+启动 Winlator 时自动下发以下中文优化默认值（用户已手动设置的项不覆盖）：
+
+| 配置项 | 默认值 | 作用 |
+| --- | --- | --- |
+| `lcAll` | `zh_CN.utf8` | 区域语言设为简体中文 UTF-8，避免非 Unicode 程序乱码 |
+| `tz` | `Asia/Shanghai` | 时区设为中国标准时间 |
+| `dxwrapper` | `dxvk` | DirectX 转 Vulkan，兼容性与性能均衡 |
+| `box64Preset` | `PERFORMANCE` | box64 性能档位，提升游戏运行速度 |
+
+### 图形驱动与分辨率自动调优
+
+由 `WinlatorAutoTuning` 在启动时自动检测设备硬件并填充用户未设置的项：
+
+- **图形驱动**：骁龙（Adreno）GPU → `turnip,zink`（原生 Vulkan）；其余 GPU（Mali/PowerVR 等）→ `vortek,zink`（兼容性优先）。
+- **分辨率**：从预设档位中选取宽高比最接近设备屏幕、且不超过物理分辨率的档位，避免画面拉伸或黑边。
+
+### 一键中文字体优化包
+
+Winlator 外置启动协议不支持直接注入字体，因此提供「导出中文字体优化包」入口（引擎页 → Winlator 设置弹窗），一键将以下内容导出到 `Download/TyranorNext/winlator_cn/`：
+
+1. **`fontsubstitute.reg`** —— Wine 字体替换注册表，把 GalGame 常用日文字体名（MS Gothic / MS Mincho / Meiryo 等）映射到中文字体（Noto Sans/Serif CJK），从根源消除方块与乱码。
+2. **系统 CJK 字体** —— 自动从 `/system/fonts` 复制 Noto Sans/Serif CJK 字体文件。
+3. **`README.txt`** —— 简明的 Winlator 内导入步骤说明。
+
+用户只需在 Winlator 容器内把字体复制到 `C:\windows\fonts\`、双击导入 `fontsubstitute.reg`、重启容器即可正常显示中文。
+
 ## 参与贡献
 
 欢迎参与项目开发与维护！
